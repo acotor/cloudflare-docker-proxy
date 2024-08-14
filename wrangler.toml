@@ -13,13 +13,13 @@ TARGET_UPSTREAM = "https://registry-1.docker.io"
 [env.production]
 name = "cloudflare-docker-proxy"
 routes = [
-  { pattern = "docker.thephak.cc", custom_domain = true },
-  { pattern = "quay.thephak.cc", custom_domain = true },
-  { pattern = "gcr.thephak.cc", custom_domain = true },
-  { pattern = "k8s-gcr.thephak.cc", custom_domain = true },
-  { pattern = "k8s.thephak.cc", custom_domain = true },
-  { pattern = "ghcr.thephak.cc", custom_domain = true },
-  { pattern = "cloudsmith.thephak.cc", custom_domain = true },
+  { pattern = "${env.DOCKER_DN}", custom_domain = true },
+  { pattern = "${env.QUAY_DN}", custom_domain = true },
+  { pattern = "${env.GCR_DN}", custom_domain = true },
+  { pattern = "${env.K8S_GCR_DN}", custom_domain = true },
+  { pattern = "${env.K8S_DN}", custom_domain = true },
+  { pattern = "${env.GHCR_DN}", custom_domain = true },
+  { pattern = "${env.CLOUDSMITH_DN}", custom_domain = true },
 ]
 
 [env.production.vars]
@@ -28,7 +28,7 @@ TARGET_UPSTREAM = ""
 
 [env.staging]
 name = "cloudflare-docker-proxy-staging"
-route = { pattern = "docker-staging.thephak.cc", custom_domain = true }
+route = { pattern = "${env.DOCKER_STAGING_DN}", custom_domain = true }
 
 [env.staging.vars]
 MODE = "staging"
