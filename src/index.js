@@ -7,17 +7,17 @@ const dockerHub = "https://registry-1.docker.io";
 
 const routes = {
   // production
-  "docker.thephak.cc": dockerHub,
-  "quay.thephak.cc": "https://quay.io",
-  "gcr.thephak.cc": "https://gcr.io",
-  "k8s-gcr.thephak.cc": "https://k8s.gcr.io",
-  "k8s.thephak.cc": "https://registry.k8s.io",
-  "ghcr.thephak.cc": "https://ghcr.io",
-  "cloudsmith.thephak.cc": "https://docker.cloudsmith.io",
-  "ecr.thephak.cc": "https://public.ecr.aws",
+  "${env.DOCKER_DN}": dockerHub,
+  "${env.QUAY_DN}": "https://quay.io",
+  "${env.GCR_DN}": "https://gcr.io",
+  "${env.K8S_GCR_DN}": "https://k8s.gcr.io",
+  "${env.K8S_DN}": "https://registry.k8s.io",
+  "${env.GHCR_DN}": "https://ghcr.io",
+  "${env.CLOUDSMITH_DN}": "https://docker.cloudsmith.io",
+  "${env.ECR_DN}": "https://public.ecr.aws",
 
   // staging
-  "docker-staging.thephak.cc": dockerHub,
+  "${env.DOCKER_STAGING_DN}": dockerHub,
 };
 
 function routeByHosts(host) {
